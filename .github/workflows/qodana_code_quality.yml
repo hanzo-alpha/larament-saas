@@ -1,4 +1,5 @@
 name: Qodana
+
 on:
   push:
 
@@ -6,10 +7,12 @@ jobs:
   qodana:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: 'Qodana Scan'
+
+      - name: Qodana Scan
         uses: JetBrains/qodana-action@v2024.1
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
